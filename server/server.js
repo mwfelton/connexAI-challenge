@@ -1,14 +1,11 @@
 const express = require('express');
 const cors = require('cors');
+const prometheus = require('express-prometheus-middleware');
 
 const app = express();
 const port = 3001;
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-  res.send('Server is running');
-});
 
 app.use((req, res, next) => {
   const authHeader = req.headers['authorization'];
@@ -17,6 +14,11 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.use(prometheus({
+  metricPath: '/metrics',
+  collectDefaultMetrics: true,
+}));
 
 app.get('/time', (req, res) => {
   const serverTime = {

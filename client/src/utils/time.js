@@ -9,7 +9,6 @@ export const getTime = async () => {
   
       if (response.ok) {
         const data = await response.json();
-        console.log('DATA', data)
         return data.epoch; 
       } else {
         console.error('Error fetching time:', response.statusText);
