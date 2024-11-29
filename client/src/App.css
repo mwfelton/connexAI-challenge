@@ -19,5 +19,24 @@
   background-color: #61dafb; 
   color: #ffffff; 
   display: flex;
-  justify-content: center; 
+  flex-direction: column;
+  align-items: center;
 }
+
+.metrics {
+  width: 80%;
+  height: 60%; 
+  overflow-y: auto; 
+  white-space: pre-wrap;
+  border: 1px white solid;
+  padding: 25px;
+}
+
+.metrics pre {
+  font-family: monospace; 
+  font-size: calc(12px + 0.5vw); 
+  word-wrap: break-word; 
+  white-space: pre-wrap;
+  margin: 0;
+}
+
